@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Page</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            padding: 20px;
+
+            background-color: rgb(226, 226, 226);
+
+            /* background-image: url("{{ url_for('static', filename='pic2.jpg') }}"); */
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+        }
+        .upi-ids{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form{
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+        form input {
+
+            margin-bottom: 20px;
+
+            height: 40px;
+
+            width: 200px;
+
+        }
+
+        form button{
+
+            height: 27px;
+
+        }
+
+        .qr-code img {
+
+            border: solid rgb(255, 255, 255) 10px;
+
+            height: 300px;
+
+            width: 300px;
+
+        }
+
+        .qr-code {
+
+            margin-bottom: 20px;
+
+        }
+
+        .account-info, .upi-ids {
+
+            display: flex;
+
+            margin-bottom: 20px;
+
+        }
+
+        .upi-id {
+
+            display: flex;
+
+            align-items: center;
+            flex-direction: column;
+
+            justify-content: center;
+
+            margin-bottom: 10px;
+
+        }
+
+        .upi-id img {
+
+            width: 60px;
+
+            height: 50px;
+
+            margin-right: 10px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Payment Details</h1>
+
+    <div class="qr-code">
+
+        <img src="/image/{{name2['id']}}" alt="{{name['name']}}">
+
+    </div>
+
+    <div class="account-info">
+
+        <div class="accinfo">
+
+            <p><strong>Account No:</strong> {{name2['acc_no']}}</p>
+
+            <p><strong>IFSC Code:</strong> {{name2['ifsc']}}</p>
+
+            <p><strong>Bank Name:</strong> {{name2['bank_name']}}</p>
+
+        </div>
+
+    </div>
+
+    <div class="upi-ids">
+
+
+
+    <h2>Confirm Your Payment</h2>
+
+    <form action="/confirm_payment" method="POST", enctype="multipart/form-data">
+
+        <label for="name">Your Name:</label>
+
+        <input type="text" id="name" name="name" required>
+
+
+        <label for="email">Your Email:</label>
+
+        <input type="email" id="email" name="email" placeholder="Optional">
+
+
+        <label for="amount">Amount Paid:</label>
+
+        <input type="number" id="amount" name="amount" required>
+
+        <input type="hidden" name="id" value="{{name['id']}}">
+
+
+        <label for="screenshot">Upload Payment Screenshot:</label>
+
+        <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
+
+
+        <button type="submit">Confirm Payment</button>
+
+    </form>
+</div>
+</body>
+
+</html>
