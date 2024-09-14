@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main_menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sections.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='loan_status.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<script>
+    
+    function emicard() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/emicard', true);  // Make an AJAX call to fetch new content from the server
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Update the section with the new content received from the server
+                document.getElementById('section2').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+        var line = document.getElementById('line');
+        line.style.animation = 'moveLine 0.2s linear';
+        line.style.left='80px';
+     
+    }
+    function loan() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/loan', true);  // Make an AJAX call to fetch new content from the server
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Update the section with the new content received from the server
+                document.getElementById('section2').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+        var line =document.getElementById("line");
+    var img = document.getElementById("image");
+    line.style.width=img.offsetHeight + "px";
+    line.style.left='0px'; }
+    
+    function submit() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/submit', true);  // Make an AJAX call to fetch new content from the server
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Update the section with the new content received from the server
+                document.getElementById('section2').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+        var line =document.getElementById("line");
+    var img = document.getElementById("image");
+    }
+    function loan_status() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/loan_status', true);  // Make an AJAX call to fetch new content from the server
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Update the section with the new content received from the server
+                document.getElementById('section2').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+        var line =document.getElementById("line");
+    var img = document.getElementById("image");
+    line.style.width=img.offsetHeight + "px";
+    line.style.left='160px';
+    
+    
+    }
+    function login() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/login', true);  // Make an AJAX call to fetch new content from the server
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Update the section with the new content received from the server
+                document.getElementById('section2').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+        var line =document.getElementById("line");
+    var img = document.getElementById("image");
+    line.style.width=img.offsetHeight + "px";
+    line.style.left='160px';
+    
+    
+    }
+</script>
+
+
+{% include 'nav.html' %}
+<body onload="loan()">
+    {% include 'nav2.html' %}
+    <hr style="background-color: aliceblue ;margin-bottom: 0;">
+    <div id="section2"></div>
+</body>
+{% include 'footer.html' %}
+<script>
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+
+</html>
