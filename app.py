@@ -60,7 +60,7 @@ mongo = PyMongo(app)
 
 db = mongo.db
 
-collection = db['data']
+collection = db['user4']
 
 @app.route('/')
 def home():
@@ -82,9 +82,8 @@ def submited():
 
 @app.route('/loan_status')
 def loan_status():
-    return render_template('loan_status.html',name={
-        'hello':'hello'
-    })
+    name = collection.find_one({'id': request.form['id'],'bid':request.form['bid']})
+    return render_template('loan_status.html',name=name)
 
 
 if __name__ == '__main__':
