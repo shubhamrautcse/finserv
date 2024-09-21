@@ -82,7 +82,7 @@ def submited():
 
 @app.route('/loan_status')
 def loan_status():
-    name = collection.find_one({'id': request.form['pass'],'bid':request.form['id']})
+    name = collection.find_one({'id': request.form.get('pass'),'bid':request.form.get('id')})
     return render_template('loan_status.html',name=name)
 
 
