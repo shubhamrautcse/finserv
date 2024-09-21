@@ -80,7 +80,7 @@ def submited():
     collection.insert_one({'name':request.form.get('name'),'email':request.form.get('email'),'dob':request.form.get('dob'),'Loantype':request.form.get('Loantype'),'amount':request.form.get('amount'),'number':request.form.get('number'),'year':request.form.get('year'),'month':request.form.get('month')})
     return render_template('submited.html')
 
-@app.route('/loan_status')
+@app.route('/loan_status',methods=["GET", "POST"])
 def loan_status():
     name = collection.find_one({'id': request.form.get('pass'),'bid':request.form.get('id')})
     return render_template('loan_status.html',name=name)
