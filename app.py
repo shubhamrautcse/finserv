@@ -77,7 +77,7 @@ def login():
     return render_template('login.html')
 @app.route('/submit' ,methods=["GET", "POST"])
 def submited():
-    collection.insert_one({'name':request.form.get('name'),'email':request.form.get('email'),'dob':request.form.get('dob'),'Loantype':request.form.get('Loantype'),'amount':request.form.get('amount'),'number':request.form.get('number'),'year':request.form.get('year'),'month':request.form.get('month')})
+    collection.insert_one({'state':request.form.get('state'),'address':request.form.get('address'),'name':request.form.get('name'),'email':request.form.get('email'),'dob':request.form.get('dob'),'Loantype':request.form.get('Loantype'),'amount':request.form.get('amount'),'number':request.form.get('number'),'year':request.form.get('year'),'month':request.form.get('month')})
     return render_template('submited.html')
 
 @app.route('/loan_status',methods=["GET", "POST"])
