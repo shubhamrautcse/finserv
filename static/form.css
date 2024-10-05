@@ -7,6 +7,10 @@ form{
     margin: 5px;
     border-radius: 5px;
     margin-top: 0;
+     background-image: url("1000033056.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode:multiply;
 }
 form label,input,button,option,select{
     margin: 5px;
