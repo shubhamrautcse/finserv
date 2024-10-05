@@ -1,7 +1,9 @@
 <div class="animated-div">
-
+    <img style="padding: 0; width: 100%;" src="{{ url_for('static', filename='1000033060.jpg') }}" alt="">
     <form action="/submit" method="post">
+        
         <h1>Apply for loan</h1>
+        <p style="align-self: end; color: rgb(25, 59, 253);"><b>HELP LINE: +919163923898</b></p>
         
         <label for="">Loan Amount:</label>
         <input name="amount" type="text">
@@ -130,8 +132,5 @@
         <hr>
     </div>
 </div>
-window.onload = function() {
-    const animatedDiv = document.getElementById('animatedDiv');
-    animatedDiv.classList.add('animated'); // Add the class that triggers the animation
-};
+
 
