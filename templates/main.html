@@ -2,8 +2,18 @@
 
     <form action="/submit" method="post">
         <h1>Apply for loan</h1>
+        <label for="">Loan Amount:</label>
+        <input name="amount" type="text">
         <label for="">Enter your name:</label>
         <input name="name" type="text">
+        <label for="">Phone Number:</label>
+        <input name="number" type="text">
+        <label for="">State:</label>
+        <input name="state" type="text">
+        <label for="">Full Address:</label>
+        <input name="address" type="text">
+        <label for="">Email Address:</label>
+        <input name="email" type="text">
         <label for="">Loan type:</label>
         <select name="Loantype" id="">
             <option value="p">Personal Loan</option>
@@ -12,8 +22,7 @@
             <option value="v">Vechle Loan</option>
             <option value="o">Others</option>
         </select>
-        <label for="">Loan Amount:</label>
-        <input name="amount" type="text">
+        
         <label for="">Loan duration:</label>
         <div id="loan_duration_div">
             <select name="month" id="">
@@ -59,8 +68,7 @@
         </div>
         <label for="">Date of Birth</label>
         <input name="dob" type="text">
-        <label for="">Phone Number:</label>
-        <input name="number" type="text">
+        
         <button onclick="submit()" value="submit">Submit</button>
     </form>
 </div>
